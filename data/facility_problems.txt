@@ -1,0 +1,4 @@
+FP001|Mat in Studio A has a torn edge|Studio A|2026-10-20|INS001|Reported||
+FP002|Air-conditioning not cooling|Studio B|2026-10-22|INS002|In Progress|Technician booked for Friday|2026-10-24
+FP003|Ceiling light flickering|Main Hall|2026-10-18|INS001|Resolved|Bulb replaced|2026-10-19
+FP004|Punching bag chain broken|Studio A|2026-10-25|INS003|Reported||

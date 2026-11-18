@@ -1,0 +1,6 @@
+EQ001|Training Mat|Mats|20|5|Good
+EQ002|Punching Bag|Punching Bags|6|2|Good
+EQ003|Boxing Gloves (Pair)|Gloves|12|4|Good
+EQ004|Karate Uniform (Gi)|Uniforms|3|5|Fair
+EQ005|Taekwondo Dobok|Uniforms|0|3|New
+EQ006|Shin Guards|Protective Gear|15|5|Good
