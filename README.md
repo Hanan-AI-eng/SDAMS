@@ -1,6 +1,7 @@
 SDAMS
 
-Self Defence Academy Management 
+Self Defence Academy Management System
+
 ---
 
 # SDAMS – Administrator module (S2)
@@ -63,4 +64,3 @@ Log in with **siti01 / pass123** (Administrator).
 - A future join date and a belt rank that is not in the list are rejected
 - Payments can be filtered by student, by date range and with no results (RM 0.00). An invalid range where From is after To is rejected
 - FileHandler creates a missing file, and update or delete with an unknown ID returns false
-System
