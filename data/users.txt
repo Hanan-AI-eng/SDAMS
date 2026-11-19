@@ -1,0 +1,9 @@
+M001|Ahmad Faizal|manager01|admin123|MANAGER|0121112222|faizal@sda.com
+A001|Siti Aminah|siti01|pass123|ADMINISTRATOR|0123456789|siti@sda.com
+I001|Lee Wei Ming|leewm|teach123|INSTRUCTOR|0132223333|weiming@sda.com
+I002|Nurul Huda|nurulh|teach456|INSTRUCTOR|0143334444|nurul@sda.com
+F001|Rajesh Kumar|rajesh|fac12345|FACILITIES_OFFICER|0154445555|rajesh@sda.com
+T001|Tan Mei Ling|meiling|att12345|ATTENDANCE_OFFICER|0165556666|meiling@sda.com
+S001|Daniel Wong|danielw|stud123|STUDENT|0176667777|daniel@mail.com
+S002|Aisyah Rahman|aisyahr|stud456|STUDENT|0187778888|aisyah@mail.com
+S003|Kavin Raj|kavinr|stud789|STUDENT|0198889999|kavin@mail.com
