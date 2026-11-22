@@ -1,6 +1,7 @@
 package model;
 
 import java.io.IOException;
+import service.AttendanceService;
 import java.util.ArrayList;
 
 public class AttendanceReport {

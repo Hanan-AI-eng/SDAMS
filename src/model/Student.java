@@ -1,8 +1,8 @@
 package model;
 
-import gui.PlaceholderDashboard;
+import gui.StudentDashboard;
 
-/** STAND-IN subclass from S1. S3 (Student) replaces openDashboard() with the real screen. */
+/** Student user (subclass from S1). openDashboard() opens the S3 Student dashboard. */
 public class Student extends User {
 
     public Student(String id, String name, String username, String password, String phone, String email) {
@@ -11,6 +11,6 @@ public class Student extends User {
 
     @Override
     public void openDashboard() {
-        PlaceholderDashboard.show(this, "S3 (Student)");
+        new StudentDashboard(this).setVisible(true);
     }
 }
