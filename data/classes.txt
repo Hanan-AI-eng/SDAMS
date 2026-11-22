@@ -5,3 +5,6 @@ TC004|Karate Sparring|Karate|I001|2026-12-12|10:00|12:00|Studio A|12|80.0|ACTIVE
 TC005|Taekwondo Kicks|Taekwondo|I002|2026-12-06|14:00|16:00|Studio B|15|75.0|ACTIVE
 TC006|Silat Self Defence|Silat|I002|2026-12-05|11:00|13:00|Main Hall|2|60.0|ACTIVE
 TC007|Karate Belt Prep|Karate|I001|2026-12-19|09:00|11:00|Studio A|10|90.0|OPEN
+C001|Karate Fundamentals|Karate|I001|2026-10-26|10:00|12:00|Studio A|20|150.0|COMPLETED
+C002|Karate Kumite|Karate|I001|2026-10-26|14:00|16:00|Studio A|20|180.0|COMPLETED
+C003|Taekwondo Basics|Taekwondo|I002|2026-10-30|10:00|12:00|Studio B|20|160.0|COMPLETED
