@@ -1,2 +1,7 @@
 TC001|Java Fundamentals|Programming|INS001|2026-11-15|10:00|12:00|A101|20|50.0|CANCELLED
 TC002|Python Basics|Programming|INS002|2026-11-20|14:00|16:00|A102|25|60.0|ACTIVE
+TC003|Karate Kata Basics|Karate|I001|2026-12-05|10:00|12:00|Studio A|15|80.0|ACTIVE
+TC004|Karate Sparring|Karate|I001|2026-12-12|10:00|12:00|Studio A|12|80.0|ACTIVE
+TC005|Taekwondo Kicks|Taekwondo|I002|2026-12-06|14:00|16:00|Studio B|15|75.0|ACTIVE
+TC006|Silat Self Defence|Silat|I002|2026-12-05|11:00|13:00|Main Hall|2|60.0|ACTIVE
+TC007|Karate Belt Prep|Karate|I001|2026-12-19|09:00|11:00|Studio A|10|90.0|OPEN
