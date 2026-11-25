@@ -3,7 +3,7 @@ package model;
 import util.FileHandler;
 
 /**
- * STAND-IN for S1's UserFactory: builds the correct User subclass.
+ * Builds the correct User subclass (owner: S1).
  * Factory design pattern: callers never write "new Instructor(...)" themselves.
  */
 public final class UserFactory {

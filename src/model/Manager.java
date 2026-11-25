@@ -1,8 +1,11 @@
 package model;
 
-import gui.PlaceholderDashboard;
+import gui.ManagerDashboard;
 
-/** STAND-IN subclass from S1. S1 (Manager) replaces openDashboard() with the real screen. */
+/**
+ * Manager user (owner: S1). No feature creates a Manager: the account is
+ * pre-loaded in users.txt (assumption).
+ */
 public class Manager extends User {
 
     public Manager(String id, String name, String username, String password, String phone, String email) {
@@ -11,6 +14,6 @@ public class Manager extends User {
 
     @Override
     public void openDashboard() {
-        PlaceholderDashboard.show(this, "S1 (Manager)");
+        new ManagerDashboard(this).setVisible(true);
     }
 }

@@ -1,6 +1,6 @@
 package model;
 
-/** STAND-IN for S1's Role enum. The enum name is what goes into users.txt. */
+/** The six user roles (owner: S1). The enum name is what goes into users.txt. */
 public enum Role {
     MANAGER("M", "Manager"),
     ADMINISTRATOR("A", "Administrator"),

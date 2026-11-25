@@ -4,8 +4,12 @@ import util.FileHandler;
 import util.Validator;
 
 /**
- * STAND-IN for S1's abstract User class. Swap in S1's version when ready; the
- * Administrator module only relies on the constructor, getters and toFileLine().
+ * Abstract parent of every user (owner: S1).
+ *
+ * Abstraction: User is abstract because there is no "plain" user in the
+ * academy; every account is one of the six roles. openDashboard() is abstract
+ * because only the subclass knows which screen to open.
+ * Encapsulation: all fields are private and every setter validates its value.
  *
  * users.txt: userId | name | username | password | role | phone | email
  */
