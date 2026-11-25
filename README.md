@@ -123,3 +123,88 @@ Also added the missing `import service.AttendanceService;` to `model/AttendanceR
 - Rate a taken class; 9 stars, `|` in the comment, rating twice and rating a class not taken are blocked
 - Profile: bad phone, duplicate email and `|` in the name are rejected; valid changes saved
 - Password: wrong current password, mismatched confirmation and too-short password are rejected
+
+---
+
+# SDAMS – Manager module (S1)
+
+Java Swing + text files only. Compiles on JDK 8 or newer, with no external libraries.
+
+## How to run
+
+**NetBeans:** File → New Project → Java with Ant → *Java Project with Existing Sources*. Add the `src` folder as the source root, set `Main` as the main class, and keep the project folder as the working directory so the program finds `data/`. Then run.
+
+**Command line (from this folder):**
+```
+javac -d build $(find src -name "*.java")
+java -cp build Main
+```
+
+Log in with **manager01 / admin123**. Every other role logs in correctly but shows a placeholder message until that teammate adds their dashboard.
+
+## Manager features
+- **Login screen:** one entry point for all six roles. It calls `user.openDashboard()`, so each subclass opens its own dashboard and there is no `if role == ...` chain
+- **Manage Administrators:** add, view, update and delete administrators, with search by ID or name as you type. Passwords are never shown
+- **Staff Report:** filter by role (All, Administrator, Instructor, Facilities Officer) and search by name. Totals per role are shown under the table
+- **Revenue Report:** Monthly or Yearly, with month and year dropdowns. A TOTAL row and a bar chart are included
+- **Extras:** account lock after 3 failed logins, a Graphics2D bar chart, export of both reports to .txt, and changing your own password
+
+## Files
+
+### Yours (S1)
+| File | Purpose |
+|---|---|
+| `model/User.java` | Abstract parent: private fields, validated setters, abstract `openDashboard()`, `toFileLine()` |
+| `model/Manager, Administrator, Instructor, Student, FacilitiesOfficer, AttendanceOfficer` | The six subclasses. Each overrides `openDashboard()` |
+| `model/Role.java` | Enum of the six roles, with their ID prefixes |
+| `model/UserFactory.java` | Factory pattern: builds the right subclass from a line of users.txt |
+| `service/UserService.java` | Login check, manage administrators, change own password |
+| `service/Reportable.java` | Interface shared by both reports |
+| `service/StaffReport.java`, `service/RevenueReport.java` | Report calculations, kept separate from the GUI |
+| `util/ReportExporter.java` | Saves any `Reportable` to `data/exports/` |
+| `gui/LoginFrame.java` | Login screen with the 3-attempt lock |
+| `gui/ManagerDashboard, ManageAdminPanel, StaffReportPanel, RevenueReportPanel, RevenueChart, ChangePasswordPanel` | Manager screens |
+| `Main.java` | Opens the login screen |
+
+### Shared pieces from teammates (included so the project compiles)
+| File | Owner |
+|---|---|
+| `util/FileHandler`, `model/Record`, `util/Repository`, `service/AccountService`, `util/ActivityLog`, `util/DataFiles`, `gui/FormPanel` | S2 |
+| `util/Validator`, `util/IdGenerator` | S5 (stand-ins) |
+| `gui/UiStyle`, `gui/BaseDashboardFrame`, `gui/PlaceholderDashboard` | S6 (stand-ins) |
+
+When teammates finish their dashboards, each of them changes `openDashboard()` in their own subclass, for example `Administrator` opens `AdminDashboard`. The login screen does not change.
+
+## Assumptions (for the report)
+1. The Manager account is pre-loaded in users.txt. No feature creates a Manager.
+2. A Manager cannot delete their own account. Manage Administrators only lists and deletes Administrator accounts.
+3. Usernames are unique across all users, ignoring case. A name must not be empty, email and phone must match a pattern, and passwords need at least 6 characters. No field may contain `|`.
+4. **Revenue counts only PAID payments.** UNPAID and REFUNDED payments are excluded.
+5. **One PAID payment = one class registration.**
+6. A period with no payments shows RM 0.00 and "No records" instead of an error.
+7. The Staff Report covers Administrators, Instructors and Facilities Officers, the roles listed in the brief.
+8. When updating an administrator, a blank password keeps the current password.
+9. After 3 wrong passwords for an existing username, that account is locked for 60 seconds. The lock resets when the program restarts.
+
+## Where the OOP concepts are
+- **Abstraction:** `User` is abstract, with an abstract `openDashboard()`
+- **Inheritance:** six role subclasses extend `User`
+- **Polymorphism:** `LoginFrame` calls `user.openDashboard()` without knowing the subclass. `ReportExporter` saves any `Reportable`. `toFileLine()` and `toString()` are overridden
+- **Encapsulation:** private fields, and setters that reject invalid values
+- **Extras:** `Role` enum, Factory pattern (`UserFactory`), `Reportable` interface shared by the report classes
+
+## Test results (31 checks, all passed)
+| Test | Expected | Result |
+|---|---|---|
+| Valid login for each of the 6 roles | Builds the correct subclass | Pass |
+| Wrong password / unknown user | Rejected | Pass |
+| Add an administrator with valid data | Saved as A002 | Pass |
+| Duplicate username, empty name, bad email, `\|` in name, short password | Error message, nothing saved | Pass |
+| Update an administrator with a blank password | Old password kept | Pass |
+| Delete own account / delete a non-administrator | Refused | Pass |
+| Staff Report: All / Instructor / Facilities Officer / name search | Correct totals | Pass |
+| Revenue November 2026 | RM 330.00 from 2 registrations (UNPAID excluded) | Pass |
+| Revenue October 2026 | RM 320.00 (REFUNDED excluded) | Pass |
+| Revenue January 2026 | RM 0.00, "No records" | Pass |
+| Revenue for the year 2026 | RM 1120.00 from 7 registrations | Pass |
+| Change password: wrong current / mismatch / valid | Error / error / changed | Pass |
