@@ -61,7 +61,7 @@ public abstract class BaseDashboardFrame extends JFrame {
         menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
         menu.setBackground(UiStyle.PRIMARY_DARK);
         menu.setBorder(BorderFactory.createEmptyBorder(16, 10, 16, 10));
-        menu.setPreferredSize(new Dimension(190, 0));
+        menu.setPreferredSize(new Dimension(220, 0));
 
         content.setBackground(UiStyle.BACKGROUND);
 
